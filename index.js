@@ -1,13 +1,15 @@
-const path = require('path');
-const express = require('express');
-const app = express();
-const publicPath = path.join(__dirname, '..', 'public');
-const port = process.env.PORT || 3000;
-console.log('ppppp ', publicPath)
-app.use(express.static(publicPath));
+const express = require('express')
+const path = require('path')
+
+const app = express()
+
+app.use(express.static('public'))
 app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
-app.listen(port, () => {
-  console.log('Server is up!', port);
-});
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+  console.log(`Server started at ${PORT}`)
+})

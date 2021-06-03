@@ -78,7 +78,7 @@ class App extends React.Component {
     return (
       <div className='body'>
         <div className='wheel'>
-          <img className='arrow' src={arrow} alt=""/>
+//           <img className='arrow' src={arrow} alt=""/>
           <ul className='circle' onTransitionEnd={this.endTransition}>
             {this.addZonesToWheel()}
           </ul>
